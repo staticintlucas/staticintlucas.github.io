@@ -1,0 +1,292 @@
+@import "variables";
+
+body {
+    background-color: $background;
+    color: $foreground;
+    font-size: $font-size;
+    line-height: $font-line-height;
+    font-family: $font-family;
+    font-weight: $font-weight;
+    letter-spacing: $font-letter-spacing;
+    text-rendering: optimizeLegibility;
+}
+
+header, article, footer {
+    margin: $v-spacing $h-spacing;
+}
+
+header {
+    position: relative;
+    margin-bottom: $header-spacing;
+
+    nav {
+        font-size: $header-font-size;
+
+        ul{
+            list-style: none;
+            display: flex;
+            align-items: baseline;
+            flex-wrap: wrap;
+            margin: (-$v-spacing / 2) (-$h-spacing / 2);
+
+            &, & li {
+                padding-left: 0;
+            }
+
+            >li {
+                margin: ($v-spacing / 2) ($h-spacing / 2);
+
+                &:first-child {
+                    margin-right: auto;
+                }
+            }
+
+            a.title {
+
+                code {
+                    background: transparent;
+                    font-size: $title-font-size;
+                    padding: 0;
+
+                    >span {
+                        transition: color 0.2s ease-out;
+                    }
+                }
+
+                &:hover code>span, &:focus code>span {
+                    color: $active-fg;
+                }
+            }
+
+            a {
+                white-space: nowrap;
+            }
+        }
+    }
+}
+
+p, form, h1, h2, h3, h4, h5, h6, ul, ol, div.highlighter-rouge, table, blockquote, hr {
+    margin: 0 auto $paragraph-spacing;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: $header-font-family;
+    font-weight: $header-font-weight;
+    text-decoration: none;
+    margin-top: $v-spacing;
+    border-bottom: solid $grey-thickness $greyed-out;
+}
+
+h1 {
+    font-size: 2em;
+}
+
+h2 {
+    font-size: 1.5em;
+}
+
+h3 {
+    font-size: 1.25em;
+}
+
+h4 {
+    font-size: 1em;
+}
+
+h5 {
+    font-size: 0.875em;
+}
+
+h6 {
+    font-size: 0.85em;
+    color: $greyed-out;
+}
+
+i, em {
+    font-style: italic;
+}
+
+b, strong {
+    font-weight: bold;
+}
+
+u, ins {
+    text-decoration: underline;
+    text-decoration-color: $greyed-out;
+    text-decoration-thickness: $underline-thickness;
+    text-decoration-skip-ink: all;
+}
+
+s, del {
+    text-decoration: line-through;
+    text-decoration-color: $greyed-out;
+    text-decoration-thickness: $underline-thickness;
+}
+
+ul, ol {
+    padding-left: $h-spacing;
+
+    >li {
+        padding-left: $list-h-spacing;
+
+        &::marker {
+            color: $highlight;
+        }
+    }
+}
+
+ul {
+    list-style-type: square;
+
+    >li::marker {
+        font-size: $bullet-font-size;
+    }
+}
+
+ol {
+    list-style-type: decimal;
+}
+
+a {
+    color: $foreground;
+    text-decoration: none;
+    padding: $a-padding-v $a-padding-h;
+    margin: -$a-padding-v (-$a-padding-h);
+    box-decoration-break: clone;
+    background-image: linear-gradient(to top, $active-bg 50%, transparent 50%);
+    background-size: auto 200%;
+    background-position: 0 $a-highlight-height;
+    transition: background-position 0.15s ease-out, color 0.2s ease-out;
+    will-change: background-position, color;
+
+    &:hover, &:focus {
+        background-position: 0 $a-hover-height;
+        color: $active-fg;
+    }
+}
+
+img {
+    max-width: 100%;
+    display: block;
+    margin: 0 auto;
+}
+
+pre, code {
+    font-family: $mono-font-family;
+    font-size: $mono-font-size;
+    letter-spacing: $mono-letter-spacing;
+    line-height: $mono-line-height;
+    background: $lighter;
+    padding: $mono-padding;
+}
+
+pre.highlight {
+    // TODO use CSS counters instead when https://github.com/gettalong/kramdown/issues/617 is
+    // resolved and HTMLLinewise can be used.
+
+    &, code, pre {
+        padding: 0;
+    }
+
+    >code>table {
+        width: 100%;
+        table-layout: fixed;
+        border-left: solid $highlight-line $highlight;
+
+        td, th {
+            word-wrap: none;
+            padding: 0;
+
+            &:first-of-type {
+                width: 1.65 * $code-h-spacing;
+                padding-right: $code-h-spacing;
+                text-align: end;
+                user-select: none;
+            }
+
+            >pre {
+                width: 100%;
+                padding: $code-v-spacing 0;
+                overflow-x: auto;
+            }
+        }
+    }
+}
+
+blockquote {
+    font-style: italic;
+    background: $lighter;
+    padding: $quote-h-spacing $quote-v-spacing;
+    border-left: solid $highlight-line $highlight;
+
+    >p {
+        quotes: initial; // To override the reset, auto is not supported by !Firefox
+        quotes: auto;
+        margin: 0;
+
+        &::before, &::after {
+            display: inline;
+        }
+
+        &::before {
+            content: open-quote;
+        }
+
+        &::after {
+            content: close-quote;
+        }
+    }
+}
+
+
+table {
+    background: $lighter;
+
+    thead {
+        color: $greyed-out;
+        border-bottom: solid $highlight-line $highlight;
+    }
+
+    tfoot {
+        color: $greyed-out;
+        border-top: solid $highlight-line $highlight;
+    }
+}
+
+th, td {
+    padding: 0 $table-h-spacing;
+
+    tr:first-child & {
+        padding-top: $table-v-spacing;
+    }
+
+    tr:last-child & {
+        padding-bottom: $table-v-spacing;
+    }
+}
+
+hr {
+    width: 40%;
+    height: $grey-thickness;
+    border: none;
+    background: $greyed-out;
+    margin: 2 * $paragraph-spacing auto;
+}
+
+.fa, .fab, .fad, .fal, .far, .fas {
+    vertical-align: -0.075em;
+}
+
+@media all and (min-width: $max-width-break) {
+    header, article, footer {
+        width: $max-body-width;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+@media all and (max-width: $header-fmt-break) {
+    header nav ul>li:first-child {
+        width: 100%;
+    }
+}

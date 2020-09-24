@@ -1,0 +1,65 @@
+$background: #1e1e1e;
+$lighter: #252526;
+$foreground: #c8c8c8;
+$greyed-out: #858585;
+$active-bg: hsl(193, 30%, 52%);
+$active-fg: black;
+$highlight: hsl(193, 30%, 52%);
+
+$font-family: "Crimson Pro", Georgia, Cambria, "Times New Roman", Times, serif;
+$font-weight: 300;
+$font-letter-spacing: 0.003em;
+$font-ascender: 918 / 1024; // from https://seek-oss.github.io/capsize/
+$font-descender: 220 / 1024;
+$font-caps-height: 587 / 1024;
+$font-content-area: $font-ascender + $font-descender;
+$font-size: 18pt;
+$font-line-height-mulp: 25.5pt / $font-size / $font-content-area;
+$font-line-height: $font-line-height-mulp * $font-content-area;
+
+$mono-font-family: "Fira Mono", monospace;
+$mono-letter-spacing: 0;
+$mono-font-ascender: 935 / 1000; // from https://seek-oss.github.io/capsize/
+$mono-font-descender: 265 / 1000;
+$mono-font-caps-height: 689 / 1000;
+$mono-font-content-area: $mono-font-ascender + $mono-font-descender;
+$mono-font-size: 2/3 * $font-size;
+$mono-line-height: 1.2 * $mono-font-content-area;
+$mono-padding: 0.2em 0.4em;
+
+$title-font-size: 0.9 * $font-size;
+
+$header-font-family: Montserrat;
+$header-font-weight: 700;
+$header-font-size: 1 * $font-size;
+$header-padding-h: 0.5em;
+$header-padding-v: 0.3em;
+$header-spacing: 4 * $font-size;
+
+$underline-thickness: 1pt;
+$bullet-font-size: 0.8em;
+
+$highlight-line: 3pt;
+$grey-thickness: 2.25pt;
+
+$a-padding-h: 0.2em;
+$a-padding-v: 0.15em;
+// $a-padding-v: ($font-line-height - $font-content-area) / 2 * 1em;
+// $a-highlight-height: (($font-line-height - $font-content-area) / 2 + $font-descender) / $font-line-height * 100%;
+$a-highlight-height: $highlight-line / ($font-line-height * $font-size) * 100%;
+$a-hover-height: 94%;
+
+$v-spacing: 1.2 * $font-size;
+$h-spacing: 2 * $font-size;
+$list-h-spacing: 0.3 * $font-size;
+$paragraph-spacing: 1 * $font-size;
+$table-h-spacing: $font-size;
+$table-v-spacing: 0.2 * $font-size;
+$code-h-spacing: $font-size;
+$code-v-spacing: 0.5 * $font-size;
+$quote-h-spacing: 0.4 * $font-size;
+$quote-v-spacing: 0.8 * $font-size;
+
+$max-body-width: 30 * $font-size;
+$max-width-break: $max-body-width + (2 * $h-spacing);
+$header-fmt-break: 25 * $font-size;
