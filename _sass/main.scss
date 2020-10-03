@@ -60,6 +60,7 @@ header {
 
             a {
                 white-space: nowrap;
+                background-position: 0 0;
             }
         }
     }
@@ -124,10 +125,10 @@ s, del {
 }
 
 ul, ol {
-    padding-left: $h-spacing;
+    padding-left: $list-h-spacing;
 
     >li {
-        padding-left: $list-h-spacing;
+        padding-left: $li-h-spacing;
 
         &::marker {
             color: $highlight;

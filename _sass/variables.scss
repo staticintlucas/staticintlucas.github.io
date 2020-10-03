@@ -50,8 +50,9 @@ $a-highlight-height: $highlight-line / ($font-line-height * $font-size) * 100%;
 $a-hover-height: 94%;
 
 $v-spacing: 1.2 * $font-size;
-$h-spacing: 2 * $font-size;
-$list-h-spacing: 0.3 * $font-size;
+$h-spacing: 1.4 * $font-size;
+$list-h-spacing: 2 * $font-size;
+$li-h-spacing: 0.3 * $font-size;
 $paragraph-spacing: 1 * $font-size;
 $table-h-spacing: $font-size;
 $table-v-spacing: 0.2 * $font-size;
