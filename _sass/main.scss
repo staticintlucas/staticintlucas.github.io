@@ -16,7 +16,6 @@ header, article, footer {
 }
 
 header {
-    position: relative;
     margin-bottom: $header-spacing;
 
     nav {
@@ -64,6 +63,11 @@ header {
             }
         }
     }
+}
+
+footer {
+    margin-top: $header-spacing;
+    font-size: $footer-font-size;
 }
 
 p, form, h1, h2, h3, h4, h5, h6, ul, ol, div.highlighter-rouge, table, blockquote, hr {
