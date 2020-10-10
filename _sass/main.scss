@@ -1,73 +1,106 @@
 @import "variables";
 
+html {
+    height: 100%;
+}
+
 body {
     background-color: $background;
     color: $foreground;
+    padding: $body-spacing;
+    box-sizing: border-box;
     font-size: $font-size;
     line-height: $font-line-height;
     font-family: $font-family;
     font-weight: $font-weight;
     letter-spacing: $font-letter-spacing;
     text-rendering: optimizeLegibility;
-}
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
 
-header, article, footer {
-    margin: $v-spacing $h-spacing;
-}
+    >* {
+        width: 100%;
+        max-width: $max-content-width;
+        margin-bottom: $v-spacing;
 
-header {
-    margin-bottom: $header-spacing;
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
 
-    nav {
-        font-size: $header-font-size;
+    ::selection {
+        background-color: $selection-bg;
+        color: $selection-fg;
+        text-shadow: none;
+    }
 
-        ul{
-            list-style: none;
-            display: flex;
-            align-items: baseline;
-            flex-wrap: wrap;
-            margin: (-$v-spacing / 2) (-$h-spacing / 2);
+    >header {
+        max-width: $max-body-width;
+    }
 
-            &, & li {
-                padding-left: 0;
-            }
+    >footer {
+        font-size: $footer-font-size;
+        color: $greyed-out;
+    }
 
-            >li {
-                margin: ($v-spacing / 2) ($h-spacing / 2);
+    >article {
+        :first-child {
+            margin-top: 0;
+        }
 
-                &:first-child {
-                    margin-right: auto;
-                }
-            }
-
-            a.title {
-
-                code {
-                    background: transparent;
-                    font-size: $title-font-size;
-                    padding: 0;
-
-                    >span {
-                        transition: color 0.2s ease-out;
-                    }
-                }
-
-                &:hover code>span, &:focus code>span {
-                    color: $active-fg;
-                }
-            }
-
-            a {
-                white-space: nowrap;
-                background-position: 0 0;
-            }
+        :last-child {
+            margin-bottom: 0;
         }
     }
 }
 
-footer {
-    margin-top: $header-spacing;
-    font-size: $footer-font-size;
+header>nav {
+    font-size: $header-font-size;
+
+    ul{
+        list-style: none;
+        display: flex;
+        align-items: baseline;
+        flex-wrap: wrap;
+        margin: (-$inline-v-spacing / 2) (-$h-spacing / 2);
+
+        &, & li {
+            padding-left: 0;
+        }
+
+        >li {
+            margin: ($inline-v-spacing / 2) ($h-spacing / 2);
+
+            &:first-child {
+                margin-right: auto;
+            }
+        }
+
+        a {
+            white-space: nowrap;
+            background: none;
+        }
+
+        a.title {
+
+            code {
+                background: transparent;
+                font-size: $title-font-size;
+                padding: 0;
+
+                >span {
+                    transition: color 0.2s ease-out;
+                }
+            }
+
+            &:hover code>span, &:focus code>span {
+                color: $active-fg;
+            }
+        }
+    }
 }
 
 p, form, h1, h2, h3, h4, h5, h6, ul, ol, div.highlighter-rouge, table, blockquote, hr {
@@ -78,7 +111,7 @@ h1, h2, h3, h4, h5, h6 {
     font-family: $header-font-family;
     font-weight: $header-font-weight;
     text-decoration: none;
-    margin-top: $v-spacing;
+    margin-top: $inline-v-spacing;
     border-bottom: solid $grey-thickness $greyed-out;
 }
 
@@ -155,18 +188,21 @@ ol {
 a {
     color: $foreground;
     text-decoration: none;
-    padding: $a-padding-v $a-padding-h;
-    margin: -$a-padding-v (-$a-padding-h);
     box-decoration-break: clone;
-    background-image: linear-gradient(to top, $active-bg 50%, transparent 50%);
-    background-size: auto 200%;
-    background-position: 0 $a-highlight-height;
-    transition: background-position 0.15s ease-out, color 0.2s ease-out;
-    will-change: background-position, color;
+    background-image: $a-background-image;
+    background-repeat: no-repeat;
+    background-size: 100% $a-uline-thickness;
+    background-position: bottom $a-uline-offset center;
+    text-shadow: $a-text-shadow;
+    // Also transition -webkit-margin-start, an inconsequential webkit-only style to force a redraw.
+    // See: https://stackoverflow.com/questions/36046185/
+    transition: color 0.2s ease-out, -webkit-margin-start 0.2s ease-out;
+    will-change: color, background-image;
+    -webkit-margin-start: .00001px;
 
     &:hover, &:focus {
-        background-position: 0 $a-hover-height;
         color: $active-fg;
+        -webkit-margin-start: 0;
     }
 }
 
@@ -280,14 +316,6 @@ hr {
 
 .fa, .fab, .fad, .fal, .far, .fas {
     vertical-align: -0.075em;
-}
-
-@media all and (min-width: $max-width-break) {
-    header, article, footer {
-        width: $max-body-width;
-        margin-left: auto;
-        margin-right: auto;
-    }
 }
 
 @media all and (max-width: $header-fmt-break) {
