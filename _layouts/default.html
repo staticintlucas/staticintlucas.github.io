@@ -9,9 +9,11 @@ layout: compress-html
     </head>
     <body>
         {% include nav.html %}
-        <article>
-            {{ content }}
-        </article>
-        {% include footer.html %}
+        <main>
+            <article>
+                {{ content }}
+            </article>
+            {% include footer.html %}
+        </main>
     </body>
 </html>

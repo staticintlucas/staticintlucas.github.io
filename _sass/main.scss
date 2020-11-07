@@ -19,16 +19,12 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-between;
+    justify-content: flex-start;
 
-    >* {
-        width: 100%;
-        max-width: $max-content-width;
-        margin-bottom: $v-spacing;
-
-        &:last-child {
-            margin-bottom: 0;
-        }
+    @include large {
+        flex-direction: row-reverse;
+        align-items: stretch;
+        justify-content: center;
     }
 
     ::selection {
@@ -38,15 +34,33 @@ body {
     }
 
     >header {
-        max-width: $max-body-width;
-    }
+        width: 100%;
+        margin-bottom: $v-spacing;
 
-    >footer {
-        font-size: $footer-font-size;
-        color: $greyed-out;
+        @include large {
+            width: auto;
+            margin: $sidebar-v-spacing 0 $sidebar-v-spacing $sidebar-spacing;
+
+        }
+    }
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    align-items: center;
+    width: 100%;
+    max-width: $max-content-width;
+
+    >article, footer {
+        width: 100%;
     }
 
     >article {
+        flex-grow: 1;
+        margin-bottom: $v-spacing;
+
         :first-child {
             margin-top: 0;
         }
@@ -54,6 +68,11 @@ body {
         :last-child {
             margin-bottom: 0;
         }
+    }
+
+    >footer {
+        font-size: $footer-font-size;
+        color: $greyed-out;
     }
 }
 
@@ -63,9 +82,15 @@ header>nav {
     ul{
         list-style: none;
         display: flex;
+        flex-direction: row;
         align-items: baseline;
         flex-wrap: wrap;
         margin: (-$inline-v-spacing / 2) (-$h-spacing / 2);
+
+        @include large {
+            flex-direction: column;
+            align-items: flex-start;
+        }
 
         &, & li {
             padding-left: 0;
@@ -76,16 +101,18 @@ header>nav {
 
             &:first-child {
                 margin-right: auto;
+
+                @include mobile {
+                    width: 100%;
+                }
             }
         }
 
         a {
-            white-space: nowrap;
             background: none;
         }
 
         a.title {
-
             code {
                 background: transparent;
                 font-size: $title-font-size;
@@ -104,7 +131,7 @@ header>nav {
 }
 
 p, form, h1, h2, h3, h4, h5, h6, ul, ol, div.highlighter-rouge, table, blockquote, hr {
-    margin: 0 auto $paragraph-spacing;
+    margin: 0 0 $paragraph-spacing;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -185,7 +212,7 @@ ol {
     list-style-type: decimal;
 }
 
-a {
+a, a u {
     color: $foreground;
     text-decoration: none;
     box-decoration-break: clone;
@@ -316,10 +343,4 @@ hr {
 
 .fa, .fab, .fad, .fal, .far, .fas {
     vertical-align: -0.075em;
-}
-
-@media all and (max-width: $header-fmt-break) {
-    header nav ul>li:first-child {
-        width: 100%;
-    }
 }

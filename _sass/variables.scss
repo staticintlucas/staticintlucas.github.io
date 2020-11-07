@@ -82,7 +82,19 @@ $code-v-spacing: 0.5 * $font-size;
 $quote-h-spacing: 0.4 * $font-size;
 $quote-v-spacing: 0.8 * $font-size;
 
-$max-body-width: 65 * $font-size;
+$sidebar-width: 10 * $font-size;
+$sidebar-spacing: 3 * $font-size;
+$sidebar-v-spacing: 2 * $font-line-height * $font-size + $paragraph-spacing;
 $max-content-width: 25 * $font-size;
 
-$header-fmt-break: 25 * $font-size;
+@mixin mobile {
+    @media (max-width: 25 * $font-size) {
+        @content;
+    }
+}
+
+@mixin large {
+    @media (min-width: $max-content-width + 2 * ($body-spacing + $sidebar-spacing) + $sidebar-width) {
+        @content;
+    }
+}
