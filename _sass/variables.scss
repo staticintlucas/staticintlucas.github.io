@@ -20,6 +20,13 @@ $font-size: 18pt;
 $font-line-height-mulp: 25.5pt / $font-size / $font-content-area;
 $font-line-height: $font-line-height-mulp * $font-content-area;
 
+$h1-font-size: 2 * $font-size;
+$h2-font-size: 1.5 * $font-size;
+$h3-font-size: 1.25 * $font-size;
+$h4-font-size: 1 * $font-size;
+$h5-font-size: 0.875 * $font-size;
+$h6-font-size: 0.85 * $font-size;
+
 $mono-font-family: "Fira Mono", monospace;
 $mono-letter-spacing: 0;
 $mono-font-ascender: 935 / 1000; // from https://seek-oss.github.io/capsize/
@@ -34,6 +41,9 @@ $title-font-size: 0.9 * $font-size;
 
 $header-font-family: Montserrat, "DejaVu Sans", Verdana, sans‑serif;
 $header-font-weight: 700;
+$header-font-ascender: 968 / 1000; // from https://seek-oss.github.io/capsize/
+$header-font-descender: 251 / 1000;
+$header-font-caps-height: 700 / 1000;
 $header-font-size: 1 * $font-size;
 $header-padding-h: 0.5em;
 $header-padding-v: 0.3em;
@@ -60,7 +70,7 @@ $grey-thickness: 2.25pt;
 }
 
 $a-uline-offset: 5%;
-$a-uline-thickness: 0.06em;
+$a-uline-thickness: 0.05em;
 $a-background-image: linear-gradient(to top,
     transparent 0,
     currentColor 0,
@@ -82,9 +92,10 @@ $code-v-spacing: 0.5 * $font-size;
 $quote-h-spacing: 0.4 * $font-size;
 $quote-v-spacing: 0.8 * $font-size;
 
-$sidebar-width: 10 * $font-size;
+$sidebar-width: 15 * $font-size;
 $sidebar-spacing: 3 * $font-size;
-$sidebar-v-spacing: 2 * $font-line-height * $font-size + $paragraph-spacing;
+// Calculated so the ascenders of the sidebar and the page title are level
+$sidebar-v-spacing: $h1-font-size * (($font-line-height - 1) / 2 + (1 - $header-font-ascender)) - $header-font-size * (($font-line-height - 1) / 2 + (1 - $mono-font-ascender));
 $max-content-width: 25 * $font-size;
 
 @mixin mobile {

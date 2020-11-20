@@ -40,7 +40,6 @@ body {
         @include large {
             width: auto;
             margin: $sidebar-v-spacing 0 $sidebar-v-spacing $sidebar-spacing;
-
         }
     }
 }
@@ -61,6 +60,10 @@ main {
         flex-grow: 1;
         margin-bottom: $v-spacing;
 
+        * {
+            flex: 1; // Fix for weird text overflow IE 10/11
+        }
+
         :first-child {
             margin-top: 0;
         }
@@ -79,6 +82,11 @@ main {
 header>nav {
     font-size: $header-font-size;
 
+    @include large {
+        position: sticky;
+        top: $body-spacing + $sidebar-v-spacing - ($inline-v-spacing / 2);
+    }
+
     ul{
         list-style: none;
         display: flex;
@@ -90,6 +98,7 @@ header>nav {
         @include large {
             flex-direction: column;
             align-items: flex-start;
+            margin: (-$inline-v-spacing / 2) 0;
         }
 
         &, & li {
@@ -98,6 +107,10 @@ header>nav {
 
         >li {
             margin: ($inline-v-spacing / 2) ($h-spacing / 2);
+
+            @include large {
+                margin: ($inline-v-spacing / 2) 0;
+            }
 
             &:first-child {
                 margin-right: auto;
@@ -143,27 +156,27 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
-    font-size: 2em;
+    font-size: $h1-font-size;
 }
 
 h2 {
-    font-size: 1.5em;
+    font-size: $h2-font-size;
 }
 
 h3 {
-    font-size: 1.25em;
+    font-size: $h3-font-size;
 }
 
 h4 {
-    font-size: 1em;
+    font-size: $h4-font-size;
 }
 
 h5 {
-    font-size: 0.875em;
+    font-size: $h5-font-size;
 }
 
 h6 {
-    font-size: 0.85em;
+    font-size: $h6-font-size;
     color: $greyed-out;
 }
 
