@@ -54,7 +54,7 @@ $underline-thickness: 1pt;
 $bullet-font-size: 0.8em;
 
 $highlight-line: 3pt;
-$grey-thickness: 2.25pt;
+$grey-thickness: 0.12em;
 
 @function shadow($width, $color) {
     $output: '';
@@ -76,7 +76,7 @@ $a-background-image: linear-gradient(to top,
     currentColor 0,
     currentColor 100%,
     transparent 100%);
-$a-text-shadow: shadow(0.07em, $background);
+$a-text-shadow: shadow(0.06em, $background);
 
 $body-spacing: 1.2 * $font-size;
 $v-spacing: 4 * $font-size;
@@ -94,8 +94,6 @@ $quote-v-spacing: 0.8 * $font-size;
 
 $sidebar-width: 15 * $font-size;
 $sidebar-spacing: 3 * $font-size;
-// Calculated so the ascenders of the sidebar and the page title are level
-$sidebar-v-spacing: $h1-font-size * (($font-line-height - 1) / 2 + (1 - $header-font-ascender)) - $header-font-size * (($font-line-height - 1) / 2 + (1 - $mono-font-ascender));
 $max-content-width: 25 * $font-size;
 
 @mixin mobile {

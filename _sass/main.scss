@@ -24,7 +24,6 @@ body {
     @include large {
         flex-direction: row-reverse;
         align-items: stretch;
-        justify-content: center;
     }
 
     ::selection {
@@ -39,7 +38,24 @@ body {
 
         @include large {
             width: auto;
-            margin: $sidebar-v-spacing 0 $sidebar-v-spacing $sidebar-spacing;
+            height: calc(100vh - 2 * #{$body-spacing});
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            position: sticky;
+            top: $body-spacing;
+
+            &::before {
+                content: '';
+                display: inline-block;
+                flex-grow: 1;
+            }
+
+            &::after {
+                content: '';
+                display: inline-block;
+                flex-grow: 4;
+            }
         }
     }
 }
@@ -51,6 +67,7 @@ main {
     align-items: center;
     width: 100%;
     max-width: $max-content-width;
+    margin: 0 auto;
 
     >article, footer {
         width: 100%;
@@ -81,11 +98,6 @@ main {
 
 header>nav {
     font-size: $header-font-size;
-
-    @include large {
-        position: sticky;
-        top: $body-spacing + $sidebar-v-spacing - ($inline-v-spacing / 2);
-    }
 
     ul{
         list-style: none;
@@ -225,7 +237,7 @@ ol {
     list-style-type: decimal;
 }
 
-a, a u {
+a, u {
     color: $foreground;
     text-decoration: none;
     box-decoration-break: clone;
@@ -234,6 +246,9 @@ a, a u {
     background-size: 100% $a-uline-thickness;
     background-position: bottom $a-uline-offset center;
     text-shadow: $a-text-shadow;
+}
+
+a, a u {
     // Also transition -webkit-margin-start, an inconsequential webkit-only style to force a redraw.
     // See: https://stackoverflow.com/questions/36046185/
     transition: color 0.2s ease-out, -webkit-margin-start 0.2s ease-out;
