@@ -4,7 +4,7 @@ title: Lucas Jansen
 
 # Hi
 
-My name is Lucas and I am an electronic and software engineer from Cork, Ireland. I have a master's 
+My name is Lucas and I am an electronic and software engineer from Cork, Ireland. I have a master's
 degree in Electrical and Electronic engineering, and I currently work on embedded software at
 Qualcomm.
 

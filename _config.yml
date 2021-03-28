@@ -52,23 +52,13 @@ kramdown:
     block:
       line_numbers: true
 
-compress_html:
-  clippings: all
-  comments: all
-  endings: all
-  ignore:
-    envs: []
-  blanklines: false
-  profile: false
-  startings: [html, head, body]
-
 
 sass:
   style: compressed
 
 
 plugins:
-  # - jekyll-feed # TODO When I start adding blog pages
+  # - jekyll-feed # TODO if/when I start adding blog pages
   - jekyll-sitemap
   - jekyll-seo-tag
   - jekyll-titles-from-headings

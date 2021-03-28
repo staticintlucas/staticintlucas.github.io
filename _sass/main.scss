@@ -1,30 +1,18 @@
 @import "variables";
 
-html {
-    height: 100%;
-}
-
 body {
     background-color: $background;
     color: $foreground;
-    padding: $body-spacing;
-    box-sizing: border-box;
+    padding: $content-spacing / 2;
     font-size: $font-size;
     line-height: $font-line-height;
     font-family: $font-family;
     font-weight: $font-weight;
     letter-spacing: $font-letter-spacing;
     text-rendering: optimizeLegibility;
-    min-height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: flex-start;
-
-    @include large {
-        flex-direction: row-reverse;
-        align-items: stretch;
-    }
 
     ::selection {
         background-color: $selection-bg;
@@ -32,54 +20,33 @@ body {
         text-shadow: none;
     }
 
+    >* {
+        margin-bottom: $content-spacing;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+
     >header {
         width: 100%;
-        margin-bottom: $v-spacing;
-
-        @include large {
-            width: auto;
-            height: calc(100vh - 2 * #{$body-spacing});
-            margin: 0;
-            display: flex;
-            flex-direction: column;
-            position: sticky;
-            top: $body-spacing;
-
-            &::before {
-                content: '';
-                display: inline-block;
-                flex-grow: 1;
-            }
-
-            &::after {
-                content: '';
-                display: inline-block;
-                flex-grow: 4;
-            }
-        }
+        max-width: $max-overall-width;
     }
 }
 
 main {
     display: flex;
     flex-direction: column;
-    flex-grow: 1;
     align-items: center;
     width: 100%;
     max-width: $max-content-width;
-    margin: 0 auto;
 
     >article, footer {
         width: 100%;
     }
 
     >article {
-        flex-grow: 1;
-        margin-bottom: $v-spacing;
-
-        * {
-            flex: 1; // Fix for weird text overflow IE 10/11
-        }
+        margin-bottom: $content-spacing;
 
         :first-child {
             margin-top: 0;
@@ -99,41 +66,37 @@ main {
 header>nav {
     font-size: $header-font-size;
 
-    ul{
+    >ul{
         list-style: none;
         display: flex;
         flex-direction: row;
         align-items: baseline;
         flex-wrap: wrap;
-        margin: (-$inline-v-spacing / 2) (-$h-spacing / 2);
-
-        @include large {
-            flex-direction: column;
-            align-items: flex-start;
-            margin: (-$inline-v-spacing / 2) 0;
-        }
+        margin: 0;
 
         &, & li {
             padding-left: 0;
         }
 
         >li {
-            margin: ($inline-v-spacing / 2) ($h-spacing / 2);
-
-            @include large {
-                margin: ($inline-v-spacing / 2) 0;
-            }
+            margin-right: $nav-h-spacing;
 
             &:first-child {
                 margin-right: auto;
 
                 @include mobile {
                     width: 100%;
+                    margin-bottom: $nav-v-spacing;
                 }
+            }
+
+            &:last-child {
+                margin-right: 0;
             }
         }
 
         a {
+            // To remove the underline
             background: none;
         }
 
@@ -163,8 +126,10 @@ h1, h2, h3, h4, h5, h6 {
     font-family: $header-font-family;
     font-weight: $header-font-weight;
     text-decoration: none;
-    margin-top: $inline-v-spacing;
+    margin-top: $paragraph-spacing;
     border-bottom: solid $grey-thickness $greyed-out;
+    // Match the bottom underline with padding so its text is vertically centered within itself
+    padding-top: $grey-thickness;
 }
 
 h1 {
@@ -197,15 +162,16 @@ i, em {
 }
 
 b, strong {
-    font-weight: bold;
+    font-weight: $bold-font-weight;
 }
 
-u, ins {
-    text-decoration: underline;
-    text-decoration-color: $greyed-out;
-    text-decoration-thickness: $underline-thickness;
-    text-decoration-skip-ink: all;
-}
+// Overridden with fancy underlines below
+// u, ins {
+//     text-decoration: underline;
+//     text-decoration-color: $greyed-out;
+//     text-decoration-thickness: $underline-thickness;
+//     text-decoration-skip-ink: all;
+// }
 
 s, del {
     text-decoration: line-through;
@@ -237,7 +203,7 @@ ol {
     list-style-type: decimal;
 }
 
-a, u {
+a, u, ins {
     color: $foreground;
     text-decoration: none;
     box-decoration-break: clone;
@@ -248,7 +214,7 @@ a, u {
     text-shadow: $a-text-shadow;
 }
 
-a, a u {
+a, a u, a ins {
     // Also transition -webkit-margin-start, an inconsequential webkit-only style to force a redraw.
     // See: https://stackoverflow.com/questions/36046185/
     transition: color 0.2s ease-out, -webkit-margin-start 0.2s ease-out;
@@ -292,6 +258,7 @@ pre.highlight {
         td, th {
             word-wrap: none;
             padding: 0;
+            border: none;
 
             &:first-of-type {
                 width: 1.65 * $code-h-spacing;
@@ -316,7 +283,8 @@ blockquote {
     border-left: solid $highlight-line $highlight;
 
     >p {
-        quotes: initial; // To override the reset, auto is not supported by !Firefox
+        // To override the reset, auto is not supported by anyone but Firefox
+        quotes: initial;
         quotes: auto;
         margin: 0;
 
@@ -334,30 +302,18 @@ blockquote {
     }
 }
 
-
 table {
-    background: $lighter;
-
-    thead {
-        color: $greyed-out;
-        border-bottom: solid $highlight-line $highlight;
+    thead, tfoot {
+        font-weight: $bold-font-weight;
+        font-size: $h6-font-size;
+        // Make line height same as other rows for consistency
+        line-height: $font-line-height * $font-size / $h6-font-size;
+        color: $highlight;
     }
 
-    tfoot {
-        color: $greyed-out;
-        border-top: solid $highlight-line $highlight;
-    }
-}
-
-th, td {
-    padding: 0 $table-h-spacing;
-
-    tr:first-child & {
-        padding-top: $table-v-spacing;
-    }
-
-    tr:last-child & {
-        padding-bottom: $table-v-spacing;
+    th, td {
+        padding: 0 $table-h-spacing;
+        border: solid $table-line-thickness $lighterer;
     }
 }
 
