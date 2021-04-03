@@ -35,11 +35,17 @@ social:
     - https://twitter.com/staticintlucas
     - https://github.com/staticintlucas
 lang: en_IE
+permalink: pretty
 defaults:
   - scope:
       path: ""
     values:
+      layout: default
       image: /assets/img/homepage.png
+
+collections:
+  projects:
+    output: true
 
 # Build settings
 markdown: kramdown

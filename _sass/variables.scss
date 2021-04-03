@@ -16,11 +16,10 @@ $bold-font-weight: 500;
 $font-letter-spacing: 0.003em;
 $font-ascender: 918 / 1024; // from https://seek-oss.github.io/capsize/
 $font-descender: 220 / 1024;
-// $font-caps-height: 587 / 1024;
+$font-caps-height: 587 / 1024;
 $font-content-area: $font-ascender + $font-descender;
 $font-size: 18pt;
-$font-line-height-mulp: 25.5pt / $font-size / $font-content-area;
-$font-line-height: $font-line-height-mulp * $font-content-area;
+$font-line-height: 25.5pt / $font-size;
 
 $h1-font-size: 2 * $font-size;
 $h2-font-size: 1.5 * $font-size;
@@ -37,7 +36,7 @@ $mono-font-descender: 265 / 1000;
 $mono-font-content-area: $mono-font-ascender + $mono-font-descender;
 $mono-font-size: 2/3 * $font-size;
 $mono-line-height: 1.2 * $mono-font-content-area;
-$mono-padding: 0.2em 0.4em;
+$mono-padding: 0.18em 0.4em;
 
 $title-font-size: 0.9 * $font-size;
 
@@ -57,12 +56,12 @@ $highlight-line: 3pt;
 $grey-thickness: 0.12em;
 $table-line-thickness: 1.5pt;
 
-@function shadow($width, $color) {
+@function shadow($width, $height, $color) {
     $output: '';
     $t: 0deg;
     @while $t < 360deg {
         $x: $width * cos($t);
-        $y: $width * sin($t);
+        $y: $height * sin($t);
         $output: $output + '#{$x} #{$y} 0 #{$color}, ';
         $t: $t + 15deg;
     }
@@ -70,14 +69,14 @@ $table-line-thickness: 1.5pt;
     @return unquote($output);
 }
 
-$a-uline-offset: 5%;
-$a-uline-thickness: 0.05em;
-$a-background-image: linear-gradient(to top,
+$a-uline-offset: $font-ascender * 1em + 0.104em;
+$a-uline-thickness: max(0.03em, 1px);
+$a-background-image: linear-gradient(to bottom,
     transparent 0,
     currentColor 0,
     currentColor 100%,
     transparent 100%);
-$a-text-shadow: shadow(0.06em, $background);
+$a-text-shadow: shadow(0.06em, 0.045em, $background);
 
 
 $content-spacing: 4 * $font-size;
@@ -86,7 +85,7 @@ $nav-v-spacing: 1 * $font-size;
 $list-h-spacing: 2 * $font-size;
 $li-h-spacing: 0.3 * $font-size;
 $paragraph-spacing: 1 * $font-size;
-$table-h-spacing: $font-size;
+$table-h-spacing: 0.5 * $font-size;
 $table-v-spacing: 0.2 * $font-size;
 $code-h-spacing: $font-size;
 $code-v-spacing: 0.5 * $font-size;

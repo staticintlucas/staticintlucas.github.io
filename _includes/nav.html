@@ -1,14 +1,17 @@
 <header>
     <nav>
         <ul>
-            <!-- Note: omitting the closing li; HTML5 auto-closes them and I get no whitespace in
-                between -->
-            <!-- Another note: I'm hard coding the syntax highlighting here since inline code blocks
-                are apparently not supported in HTML, only in Markdown -->
-            <!-- <li><a href="/" class="title">{% highlight c %}static int lucas;{% endhighlight %}</a> -->
-            <li><a href="/" class="title"><span class="highlight"><code class="language-c" data-lang="c"><span class="k">static</span> <span class="kt">int</span> <span class="n">lucas</span><span class="p">;</span></code></span></a>
-            <li><a href="https://twitter.com/staticintlucas"><i class="fab fa-twitter"></i>&ensp;<u>Twitter</u></a>
-            <li><a href="https://github.com/staticintlucas"><i class="fab fa-github"></i>&ensp;<u>Github</u></a>
+            {% comment %}
+            Note: omitting the closing li on purpose. HTML5 auto-closes them and leaves no
+                whitespace in between.
+            Another note: I'm hard coding the syntax highlighting here since inline code blocks are
+                apparently not supported in HTML, only in Markdown.
+            <li><a href="/" class="title">{% highlight c %}static int lucas;{% endhighlight %}</a>
+            {% endcomment %}
+            <li><a href="/" class="title noline"><span class="highlight"><code class="language-c" data-lang="c"><span class="k">static</span> <span class="kt">int</span> <span class="n">lucas</span><span class="p">;</span></code></span></a>
+            <li><a href="/projects" class="noline"><i class="fas fa-terminal"></i>&ensp;<u>Projects</u></a>
+            {% comment %}<li><a href="https://twitter.com/staticintlucas" class="noline"><i class="fab fa-twitter"></i>&ensp;<u>Twitter</u></a>{% endcomment %}
+            <li><a href="https://github.com/staticintlucas" class="noline"><i class="fab fa-github"></i>&ensp;<u>Github</u></a>
         </ul>
     </nav>
 </header>

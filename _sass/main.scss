@@ -48,11 +48,11 @@ main {
     >article {
         margin-bottom: $content-spacing;
 
-        :first-child {
+        >:first-child {
             margin-top: 0;
         }
 
-        :last-child {
+        >:last-child {
             margin-bottom: 0;
         }
     }
@@ -95,11 +95,6 @@ header>nav {
             }
         }
 
-        a {
-            // To remove the underline
-            background: none;
-        }
-
         a.title {
             code {
                 background: transparent;
@@ -118,8 +113,12 @@ header>nav {
     }
 }
 
-p, form, h1, h2, h3, h4, h5, h6, ul, ol, div.highlighter-rouge, table, blockquote, hr {
-    margin: 0 0 $paragraph-spacing;
+p, form, h1, h2, h3, h4, h5, h6, ul, ol, div.highlighter-rouge, table, blockquote, hr, span {
+    margin: $paragraph-spacing 0;
+
+    &.grey {
+        color: $greyed-out;
+    }
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -130,6 +129,11 @@ h1, h2, h3, h4, h5, h6 {
     border-bottom: solid $grey-thickness $greyed-out;
     // Match the bottom underline with padding so its text is vertically centered within itself
     padding-top: $grey-thickness;
+
+    &.noline {
+        border-bottom: none;
+        padding-top: none;
+    }
 }
 
 h1 {
@@ -210,20 +214,28 @@ a, u, ins {
     background-image: $a-background-image;
     background-repeat: no-repeat;
     background-size: 100% $a-uline-thickness;
-    background-position: bottom $a-uline-offset center;
+    background-position: top $a-uline-offset center;
     text-shadow: $a-text-shadow;
+
+    &.noline {
+        background-image: none;
+    }
 }
 
-a, a u, a ins {
-    // Also transition -webkit-margin-start, an inconsequential webkit-only style to force a redraw.
-    // See: https://stackoverflow.com/questions/36046185/
-    transition: color 0.2s ease-out, -webkit-margin-start 0.2s ease-out;
-    will-change: color, background-image;
-    -webkit-margin-start: .00001px;
+a {
+    &, u, ins {
+        // Also transition -webkit-margin-start, an inconsequential webkit-only style to force a redraw.
+        // See: https://stackoverflow.com/questions/36046185/
+        transition: color 0.2s ease-out, -webkit-margin-start 0.2s ease-out;
+        will-change: color, background-image;
+        -webkit-margin-start: .00001px;
+    }
 
     &:hover, &:focus {
-        color: $active-fg;
-        -webkit-margin-start: 0;
+        &, u, ins {
+            color: $active-fg;
+            -webkit-margin-start: 0;
+        }
     }
 }
 
@@ -236,6 +248,7 @@ img {
 pre, code {
     font-family: $mono-font-family;
     font-size: $mono-font-size;
+    white-space: pre-wrap;
     letter-spacing: $mono-letter-spacing;
     line-height: $mono-line-height;
     background: $lighter;
@@ -303,6 +316,8 @@ blockquote {
 }
 
 table {
+    background: $lighter;
+
     thead, tfoot {
         font-weight: $bold-font-weight;
         font-size: $h6-font-size;
@@ -312,9 +327,13 @@ table {
     }
 
     th, td {
-        padding: 0 $table-h-spacing;
+        padding: $table-v-spacing $table-h-spacing;
         border: solid $table-line-thickness $lighterer;
     }
+}
+
+div.card {
+    display: inline-block;
 }
 
 hr {
