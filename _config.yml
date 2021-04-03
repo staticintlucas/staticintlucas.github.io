@@ -52,10 +52,13 @@ kramdown:
     block:
       line_numbers: true
 
+titles_from_headings:
+  enabled: true
+  strip_title: true
+  collections: true
 
 sass:
   style: compressed
-
 
 plugins:
   # - jekyll-feed # TODO if/when I start adding blog pages
