@@ -332,6 +332,6 @@ hr {
     margin: 2 * $paragraph-spacing auto;
 }
 
-.fa, .fab, .fad, .fal, .far, .fas {
-    vertical-align: -0.075em;
+svg.icon-tabler {
+    vertical-align: text-bottom;
 }
