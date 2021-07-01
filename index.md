@@ -12,4 +12,4 @@ Qualcomm.
 - I'm constantly working on some random project. I eventually end up losing interest in most, but
 it's a habit I'm trying *really* hard to break.
 - I work on pretty much everything hardware or low-level software, but I get often scared by
-anything web related. I made this website though, so 🤷
+anything web related. I did make this website though, so that's something.
