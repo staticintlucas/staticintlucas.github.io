@@ -93,6 +93,10 @@ header>nav {
             &:last-child {
                 margin-right: 0;
             }
+
+            a:not(:hover):not(:focus) u {
+                background: transparent;
+            }
         }
 
         a.title {
