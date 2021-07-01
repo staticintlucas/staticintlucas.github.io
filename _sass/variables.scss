@@ -38,14 +38,15 @@ $mono-font-size: 2/3 * $font-size;
 $mono-line-height: 1.2 * $mono-font-content-area;
 $mono-padding: 0.18em 0.4em;
 
-$title-font-size: 0.9 * $font-size;
-
 $header-font-family: Montserrat, "DejaVu Sans", Verdana, sans‑serif;
 $header-font-weight: 700;
 // $header-font-ascender: 968 / 1000; // from https://seek-oss.github.io/capsize/
 // $header-font-descender: 251 / 1000;
 // $header-font-caps-height: 700 / 1000;
 $header-font-size: 1 * $font-size;
+
+$title-font-size: 1.2 * $font-size;
+$title-line-height: $font-line-height / $title-font-size * $header-font-size;
 
 $footer-font-size: 0.8 * $font-size;
 

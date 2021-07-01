@@ -96,19 +96,7 @@ header>nav {
         }
 
         a.title {
-            code {
-                background: transparent;
-                font-size: $title-font-size;
-                padding: 0;
-
-                >span {
-                    transition: color 0.2s ease-out;
-                }
-            }
-
-            &:hover code>span, &:focus code>span {
-                color: $active-fg;
-            }
+            font-size: $title-font-size;
         }
     }
 }
