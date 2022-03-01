@@ -1,0 +1,26 @@
+name: Build & Publish Site
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Set up Ruby
+      uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: 2.7
+    - name: Checkout repo
+      uses: actions/checkout@v2
+    - name: Build site
+      uses: limjh16/jekyll-action-ts@v2
+      with:
+        enable_cache: true
+    - name: Publish site
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./_site
