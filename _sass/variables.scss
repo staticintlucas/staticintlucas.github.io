@@ -71,7 +71,7 @@ $table-line-thickness: 1.5pt;
 }
 
 $a-uline-offset: $font-ascender * 1em + 0.104em;
-$a-uline-thickness: max(0.03em, 1px);
+$a-uline-thickness: Max(0.03em, 1px); // capital M so sass doesn't try to evaluate max
 $a-background-image: linear-gradient(to bottom,
     transparent 0,
     currentColor 0,
