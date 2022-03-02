@@ -24,6 +24,9 @@ collections:
   projects:
     output: true # to create a page for each project
 
+sass:
+  sourcemap: development # only generate sourcemap on dev builds
+
 exclude: # Exclude these files from build step
   - README.md
   - LICENSE
