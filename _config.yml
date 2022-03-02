@@ -1,91 +1,65 @@
-# Welcome to Jekyll!
-#
-# This config file is meant for settings that affect your whole blog, values
-# which you are expected to set up once and rarely edit after that. If you find
-# yourself editing this file very often, consider using Jekyll's data files
-# feature for the data you need to update frequently.
-#
-# For technical reasons, this file is *NOT* reloaded automatically when you use
-# 'bundle exec jekyll serve'. If you change this file, please restart the server process.
-#
-# If you need help with YAML syntax, here are some quick references for you:
-# https://learn-the-web.algonquindesign.ca/topics/markdown-yaml-cheat-sheet/#yaml
-# https://learnxinyminutes.com/docs/yaml/
-#
-# Site settings
-# These are used to personalize your new site. If you look in the HTML files,
-# you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
-# You can create any custom variable you would like, and they will be accessible
-# in the templates via {{ site.myvariable }}.
-
+# common site information
 title: Lucas Jansen
-# email: email@example.com
-description: >- # this means to ignore newlines until "baseurl:"
+description: >-
   Hi. My name is Lucas and I am an electronic and software engineer from Cork, Ireland.
-baseurl: "/" # the subpath of your site, e.g. /blog
-url: "https://staticintlucas.github.io" # the base hostname & protocol for your site, e.g. http://example.com
-author: Lucas Jansen
-twitter:
-  username: staticintlucas
-  card: summary
-logo: /assets/img/homepage.png
-social:
-  name: Lucas Jansen
-  links:
-    - https://twitter.com/staticintlucas
-    - https://github.com/staticintlucas
-lang: en_IE
-permalink: pretty
+
+baseurl: "/"
+url: "https://staticintlucas.github.io"
+
+twitter_username: staticintlucas
+github_username:  staticintlucas
+
+permalink: pretty # remove .html from the end of URLs
+
+theme: null # TODO separate theme into its own repo?
+
 defaults:
   - scope:
-      path: ""
+      path: "" # an empty string here means all files in the project
     values:
       layout: default
       image: /assets/img/homepage.png
 
 collections:
   projects:
-    output: true
+    output: true # to create a page for each project
 
-# Build settings
-markdown: kramdown
+exclude: # Exclude these files from build step
+  - README.md
+  - LICENSE
+  - LICENSE-APACHE-2.0
+  - LICENSE-CC-BY-SA-4.0
+
+# Kramdown & Rouge options
 kramdown:
-  input: GFM
-  syntax_highlighter: rouge
   syntax_highlighter_opts:
     span:
       line_numbers: false
     block:
       line_numbers: true
 
+# jekyll-seo-tag
+author:
+  name: Lucas Jansen
+  twitter: staticintlucas
+
+twitter:
+  username: staticintlucas
+  card: summary
+
+logo: /assets/img/homepage.png
+
+social:
+  name: Lucas Jansen
+  links:
+    - https://twitter.com/staticintlucas
+    - https://github.com/staticintlucas
+    - https://www.linkedin.com/in/ljansen0/
+
+lang: en_IE
+
+# jekyll-titles-from-headings
 titles_from_headings:
-  enabled: true
+  enabled:     true
   strip_title: true
   collections: true
-
-sass:
-  style: compressed
-
-plugins:
-  # - jekyll-feed # TODO if/when I start adding blog pages
-  - jekyll-sitemap
-  - jekyll-seo-tag
-  - jekyll-titles-from-headings
-
-theme: null
-
-# Exclude from processing.
-# The following items will not be processed, by default. Create a custom list
-# to override the default setting.
-exclude:
-  - README.md
-  - LICENSE
-  - LICENSE-APACHE-2.0
-  - LICENSE-CC-BY-SA-4.0
-#   - Gemfile
-#   - Gemfile.lock
-#   - node_modules
-#   - vendor/bundle/
-#   - vendor/cache/
-#   - vendor/gems/
-#   - vendor/ruby/

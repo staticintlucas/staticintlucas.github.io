@@ -1,4 +1,5 @@
 ---
+# empty front matter so Jekyll knows to process this file
 ---
 
 # `stringslice`

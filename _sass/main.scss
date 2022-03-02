@@ -1,164 +1,164 @@
 @import "variables";
 
 body {
-    background-color: $background;
-    color: $foreground;
-    padding: $content-spacing / 2;
-    font-size: $font-size;
-    line-height: $font-line-height;
-    font-family: $font-family;
-    font-weight: $font-weight;
-    letter-spacing: $font-letter-spacing;
-    text-rendering: optimizeLegibility;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  background-color: $background;
+  color: $foreground;
+  padding: $content-spacing / 2;
+  font-size: $font-size;
+  line-height: $font-line-height;
+  font-family: $font-family;
+  font-weight: $font-weight;
+  letter-spacing: $font-letter-spacing;
+  text-rendering: optimizeLegibility;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
-    ::selection {
-        background-color: $selection-bg;
-        color: $selection-fg;
-        text-shadow: none;
+  ::selection {
+    background-color: $selection-bg;
+    color: $selection-fg;
+    text-shadow: none;
+  }
+
+  >* {
+    margin-bottom: $content-spacing;
+
+    &:last-child {
+      margin-bottom: 0;
     }
+  }
 
-    >* {
-        margin-bottom: $content-spacing;
-
-        &:last-child {
-            margin-bottom: 0;
-        }
-    }
-
-    >header {
-        width: 100%;
-        max-width: $max-overall-width;
-    }
+  >header {
+    width: 100%;
+    max-width: $max-overall-width;
+  }
 }
 
 main {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: $max-content-width;
+
+  >article, footer {
     width: 100%;
-    max-width: $max-content-width;
+  }
 
-    >article, footer {
-        width: 100%;
+  >article {
+    margin-bottom: $content-spacing;
+
+    >:first-child {
+      margin-top: 0;
     }
 
-    >article {
-        margin-bottom: $content-spacing;
-
-        >:first-child {
-            margin-top: 0;
-        }
-
-        >:last-child {
-            margin-bottom: 0;
-        }
+    >:last-child {
+      margin-bottom: 0;
     }
+  }
 
-    >footer {
-        font-size: $footer-font-size;
-        color: $greyed-out;
-    }
+  >footer {
+    font-size: $footer-font-size;
+    color: $greyed-out;
+  }
 }
 
 header>nav {
-    font-size: $header-font-size;
+  font-size: $header-font-size;
 
-    >ul{
-        list-style: none;
-        display: flex;
-        flex-direction: row;
-        align-items: baseline;
-        flex-wrap: wrap;
-        margin: 0;
+  >ul{
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    flex-wrap: wrap;
+    margin: 0;
 
-        &, & li {
-            padding-left: 0;
-        }
-
-        >li {
-            margin-right: $nav-h-spacing;
-
-            &:first-child {
-                margin-right: auto;
-
-                @include mobile {
-                    width: 100%;
-                    margin-bottom: $nav-v-spacing;
-                }
-            }
-
-            &:last-child {
-                margin-right: 0;
-            }
-
-            a:not(:hover):not(:focus) u {
-                background: transparent;
-            }
-        }
-
-        a.title {
-            font-size: $title-font-size;
-        }
+    &, & li {
+      padding-left: 0;
     }
+
+    >li {
+      margin-right: $nav-h-spacing;
+
+      &:first-child {
+        margin-right: auto;
+
+        @include mobile {
+          width: 100%;
+          margin-bottom: $nav-v-spacing;
+        }
+      }
+
+      &:last-child {
+        margin-right: 0;
+      }
+
+      a:not(:hover):not(:focus) u {
+        background: transparent;
+      }
+    }
+
+    a.title {
+      font-size: $title-font-size;
+    }
+  }
 }
 
 p, form, h1, h2, h3, h4, h5, h6, ul, ol, div.highlighter-rouge, table, blockquote, hr, span {
-    margin: $paragraph-spacing 0;
+  margin: $paragraph-spacing 0;
 
-    &.grey {
-        color: $greyed-out;
-    }
+  &.grey {
+    color: $greyed-out;
+  }
 }
 
 h1, h2, h3, h4, h5, h6 {
-    font-family: $header-font-family;
-    font-weight: $header-font-weight;
-    text-decoration: none;
-    margin-top: $paragraph-spacing;
-    border-bottom: solid $grey-thickness $greyed-out;
-    // Match the bottom underline with padding so its text is vertically centered within itself
-    padding-top: $grey-thickness;
+  font-family: $header-font-family;
+  font-weight: $header-font-weight;
+  text-decoration: none;
+  margin-top: $paragraph-spacing;
+  border-bottom: solid $grey-thickness $greyed-out;
+  // Match the bottom underline with padding so its text is vertically centered within itself
+  padding-top: $grey-thickness;
 
-    &.noline {
-        border-bottom: none;
-        padding-top: none;
-    }
+  &.noline {
+    border-bottom: none;
+    padding-top: none;
+  }
 }
 
 h1 {
-    font-size: $h1-font-size;
+  font-size: $h1-font-size;
 }
 
 h2 {
-    font-size: $h2-font-size;
+  font-size: $h2-font-size;
 }
 
 h3 {
-    font-size: $h3-font-size;
+  font-size: $h3-font-size;
 }
 
 h4 {
-    font-size: $h4-font-size;
+  font-size: $h4-font-size;
 }
 
 h5 {
-    font-size: $h5-font-size;
+  font-size: $h5-font-size;
 }
 
 h6 {
-    font-size: $h6-font-size;
-    color: $greyed-out;
+  font-size: $h6-font-size;
+  color: $greyed-out;
 }
 
 i, em {
-    font-style: italic;
+  font-style: italic;
 }
 
 b, strong {
-    font-weight: $bold-font-weight;
+  font-weight: $bold-font-weight;
 }
 
 // Overridden with fancy underlines below
@@ -170,172 +170,172 @@ b, strong {
 // }
 
 s, del {
-    text-decoration: line-through;
-    text-decoration-color: $greyed-out;
-    text-decoration-thickness: $underline-thickness;
+  text-decoration: line-through;
+  text-decoration-color: $greyed-out;
+  text-decoration-thickness: $underline-thickness;
 }
 
 ul, ol {
-    padding-left: $list-h-spacing;
+  padding-left: $list-h-spacing;
 
-    >li {
-        padding-left: $li-h-spacing;
+  >li {
+    padding-left: $li-h-spacing;
 
-        &::marker {
-            color: $highlight;
-        }
+    &::marker {
+      color: $highlight;
     }
+  }
 }
 
 ul {
-    list-style-type: square;
+  list-style-type: square;
 
-    >li::marker {
-        font-size: $bullet-font-size;
-    }
+  >li::marker {
+    font-size: $bullet-font-size;
+  }
 }
 
 ol {
-    list-style-type: decimal;
+  list-style-type: decimal;
 }
 
 a, u, ins {
-    color: $foreground;
-    text-decoration: none;
-    box-decoration-break: clone;
-    background-image: $a-background-image;
-    background-repeat: no-repeat;
-    background-size: 100% $a-uline-thickness;
-    background-position: top $a-uline-offset center;
-    text-shadow: $a-text-shadow;
+  color: $foreground;
+  text-decoration: none;
+  box-decoration-break: clone;
+  background-image: $a-background-image;
+  background-repeat: no-repeat;
+  background-size: 100% $a-uline-thickness;
+  background-position: top $a-uline-offset center;
+  text-shadow: $a-text-shadow;
 
-    &.noline {
-        background-image: none;
-    }
+  &.noline {
+    background-image: none;
+  }
 }
 
 a {
-    &, u, ins {
-        // Also transition -webkit-margin-start, an inconsequential webkit-only style to force a redraw.
-        // See: https://stackoverflow.com/questions/36046185/
-        transition: color 0.2s ease-out, -webkit-margin-start 0.2s ease-out;
-        will-change: color, background-image;
-        -webkit-margin-start: .00001px;
-    }
+  &, u, ins {
+    // Also transition -webkit-margin-start, an inconsequential webkit-only style to force a redraw.
+    // See: https://stackoverflow.com/questions/36046185/
+    transition: color 0.2s ease-out, -webkit-margin-start 0.2s ease-out;
+    will-change: color, background-image;
+    -webkit-margin-start: .00001px;
+  }
 
-    &:hover, &:focus {
-        &, u, ins {
-            color: $active-fg;
-            -webkit-margin-start: 0;
-        }
+  &:hover, &:focus {
+    &, u, ins {
+      color: $active-fg;
+      -webkit-margin-start: 0;
     }
+  }
 }
 
 img {
-    max-width: 100%;
-    display: block;
-    margin: 0 auto;
+  max-width: 100%;
+  display: block;
+  margin: 0 auto;
 }
 
 pre, code {
-    font-family: $mono-font-family;
-    font-size: $mono-font-size;
-    white-space: pre-wrap;
-    letter-spacing: $mono-letter-spacing;
-    line-height: $mono-line-height;
-    background: $lighter;
-    padding: $mono-padding;
+  font-family: $mono-font-family;
+  font-size: $mono-font-size;
+  white-space: pre-wrap;
+  letter-spacing: $mono-letter-spacing;
+  line-height: $mono-line-height;
+  background: $lighter;
+  padding: $mono-padding;
 }
 
 pre.highlight {
-    // TODO use CSS counters instead when https://github.com/gettalong/kramdown/issues/617 is
-    // resolved and HTMLLinewise can be used.
+  // TODO use CSS counters instead when https://github.com/gettalong/kramdown/issues/617 is
+  // resolved and HTMLLinewise can be used.
 
-    &, code, pre {
-        padding: 0;
-    }
+  &, code, pre {
+    padding: 0;
+  }
 
-    >code>table {
+  >code>table {
+    width: 100%;
+    table-layout: fixed;
+    border-left: solid $highlight-line $highlight;
+
+    td, th {
+      word-wrap: none;
+      padding: 0;
+      border: none;
+
+      &:first-of-type {
+        width: 1.65 * $code-h-spacing;
+        padding-right: $code-h-spacing;
+        text-align: end;
+        user-select: none;
+      }
+
+      >pre {
         width: 100%;
-        table-layout: fixed;
-        border-left: solid $highlight-line $highlight;
-
-        td, th {
-            word-wrap: none;
-            padding: 0;
-            border: none;
-
-            &:first-of-type {
-                width: 1.65 * $code-h-spacing;
-                padding-right: $code-h-spacing;
-                text-align: end;
-                user-select: none;
-            }
-
-            >pre {
-                width: 100%;
-                padding: $code-v-spacing 0;
-                overflow-x: auto;
-            }
-        }
+        padding: $code-v-spacing 0;
+        overflow-x: auto;
+      }
     }
+  }
 }
 
 blockquote {
-    font-style: italic;
-    background: $lighter;
-    padding: $quote-h-spacing $quote-v-spacing;
-    border-left: solid $highlight-line $highlight;
+  font-style: italic;
+  background: $lighter;
+  padding: $quote-h-spacing $quote-v-spacing;
+  border-left: solid $highlight-line $highlight;
 
-    >p {
-        // To override the reset, auto is not supported by anyone but Firefox
-        quotes: initial;
-        quotes: auto;
-        margin: 0;
+  >p {
+    // To override the reset, auto is not supported by anyone but Firefox
+    quotes: initial;
+    quotes: auto;
+    margin: 0;
 
-        &::before, &::after {
-            display: inline;
-        }
-
-        &::before {
-            content: open-quote;
-        }
-
-        &::after {
-            content: close-quote;
-        }
+    &::before, &::after {
+      display: inline;
     }
+
+    &::before {
+      content: open-quote;
+    }
+
+    &::after {
+      content: close-quote;
+    }
+  }
 }
 
 table {
-    background: $lighter;
+  background: $lighter;
 
-    thead, tfoot {
-        font-weight: $bold-font-weight;
-        font-size: $h6-font-size;
-        // Make line height same as other rows for consistency
-        line-height: $font-line-height * $font-size / $h6-font-size;
-        color: $highlight;
-    }
+  thead, tfoot {
+    font-weight: $bold-font-weight;
+    font-size: $h6-font-size;
+    // Make line height same as other rows for consistency
+    line-height: $font-line-height * $font-size / $h6-font-size;
+    color: $highlight;
+  }
 
-    th, td {
-        padding: $table-v-spacing $table-h-spacing;
-        border: solid $table-line-thickness $lighterer;
-    }
+  th, td {
+    padding: $table-v-spacing $table-h-spacing;
+    border: solid $table-line-thickness $lighterer;
+  }
 }
 
 div.card {
-    display: inline-block;
+  display: inline-block;
 }
 
 hr {
-    width: 40%;
-    height: $grey-thickness;
-    border: none;
-    background: $greyed-out;
-    margin: 2 * $paragraph-spacing auto;
+  width: 40%;
+  height: $grey-thickness;
+  border: none;
+  background: $greyed-out;
+  margin: 2 * $paragraph-spacing auto;
 }
 
 svg.icon-tabler {
-    vertical-align: text-bottom;
+  vertical-align: text-bottom;
 }

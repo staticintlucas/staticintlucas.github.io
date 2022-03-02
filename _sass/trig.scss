@@ -1,22 +1,22 @@
 @function sin($a) {
-    @if $a < 0 {
-        @while $a < -90deg {
-            $a: $a + 360deg;
-        }
-    } @else {
-        @while $a > 270deg {
-            $a: $a - 360deg;
-        }
+  @if $a < 0 {
+    @while $a < -90deg {
+      $a: $a + 360deg;
     }
-    @if $a > 90deg {
-        $a: 180deg - $a;
+  } @else {
+    @while $a > 270deg {
+      $a: $a - 360deg;
     }
-    $a: $a / 1rad;
+  }
+  @if $a > 90deg {
+      $a: 180deg - $a;
+  }
+  $a: $a / 1rad;
 
-    // Using Chebychev expansion instead of a partial taylor series for accuracy
-    @return 0.9996949 * $a - 0.1656700 * $a * $a * $a + 0.0075134 * $a * $a * $a * $a * $a;
+  // Using Chebychev expansion instead of a partial taylor series for accuracy
+  @return 0.9996949 * $a - 0.1656700 * $a * $a * $a + 0.0075134 * $a * $a * $a * $a * $a;
 }
 
 @function cos($a) {
-    @return sin(90deg - $a);
+  @return sin(90deg - $a);
 }
