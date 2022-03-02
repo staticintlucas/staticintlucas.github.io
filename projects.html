@@ -5,20 +5,17 @@ title: Projects
 {% for project in site.projects %}
 
 <div class="card">
-    <h3 class="noline">
-        <a class="noline" href="{{ project.url }}">{{ project.title }}</a>
-    </h3>
-    <p>
-        {% comment %}
-        The title isn't properly removed from the excerpt by jekyll-titles-from-headings but it is
-        removed from content, so using this "hack" instead to get the first paragraph.
-        <span class="grey">{{ project.excerpt }}</span>
-        {% endcomment %}
-        <span class="grey">
-            {{ project.content | strip | split: '</p>' | first | remove_first: '<p>' }}
-        </span>
-        <a href="{{ project.url }}">Read more &rarr;</a>
-    </p>
+  <h3 class="noline">
+    <a class="noline" href="{{ project.url }}">{{ project.title }}</a>
+  </h3>
+  <p>
+    {% comment %}
+    Remove the <p> tags which are otherwise still present in the excerpt. Not just using
+      strip_html since we want any other formatting to still be present in the excerpt
+    {% endcomment %}
+    <span class="grey">{{ project.excerpt | remove: '<p>' | remove: '</p>' }}</span>
+    <a href="{{ project.url }}">Read more &rarr;</a>
+  </p>
 </div>
 
 {% endfor %}

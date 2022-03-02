@@ -1,19 +1,21 @@
 ---
+# empty front matter so Jekyll knows to process this file
 ---
+
 <!doctype html>
 <html lang="en">
-    <head>
-        {% include head.html %}
-        <link rel="stylesheet" href="/assets/css/style.css">
-    </head>
-    <body>
-        {% include nav.html %}
-        <main>
-            <article>
-                {{ "# " | append: page.title | markdownify }}
-                {{ content }}
-            </article>
-            {% include footer.html %}
-        </main>
-    </body>
+  <head>
+    {% include head.html %}
+    <link rel="stylesheet" href="/assets/css/style.css">
+  </head>
+  <body>
+    {% include nav.html %}
+    <main>
+      <article>
+        {{ "# " | append: page.title | markdownify }}
+        {{ content }}
+      </article>
+      {% include footer.html %}
+    </main>
+  </body>
 </html>
