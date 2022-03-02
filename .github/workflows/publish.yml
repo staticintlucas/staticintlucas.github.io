@@ -3,7 +3,7 @@ name: Build & Publish Site
 on:
   push:
     branches:
-      - testing
+      - main
 
 jobs:
   publish:
