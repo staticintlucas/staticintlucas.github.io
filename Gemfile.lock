@@ -1,6 +1,7 @@
 GIT
   remote: https://github.com/staticintlucas/jekyll-titles-from-headings.git
   revision: df3d78a1d91f69f5bef8529104c58a42b23722d8
+  branch: collection-type-fix
   specs:
     jekyll-titles-from-headings (0.5.3)
       jekyll (>= 3.3, < 5.0)

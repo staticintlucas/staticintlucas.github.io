@@ -6,7 +6,7 @@ group :jekyll_plugins do
   gem "jekyll-sitemap", "~> 1.4"
   gem "jekyll-seo-tag", "~> 2.8"
   # gem "jekyll-titles-from-headings", "~> 0.5.3"
-  gem "jekyll-titles-from-headings", :git => "https://github.com/staticintlucas/jekyll-titles-from-headings.git"
+  gem "jekyll-titles-from-headings", :git => "https://github.com/staticintlucas/jekyll-titles-from-headings.git", :branch => 'collection-type-fix'
 end
 
 # Windows and JRuby does not include zoneinfo files, so bundle the tzinfo-data gem
