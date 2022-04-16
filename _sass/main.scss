@@ -81,6 +81,14 @@ header>nav {
     >li {
       margin-right: $nav-h-spacing;
 
+      @include narrower-mobile {
+        width: 100%;
+
+        &:not(:last-child) {
+          margin-bottom: $nav-v-spacing;
+        }
+      }
+
       &:first-child {
         margin-right: auto;
 

@@ -102,13 +102,13 @@ $max-content-width: 25 * $font-size;
 $max-overall-width: 55 * $font-size;
 
 @mixin mobile {
-  @media (max-width: (25 * $font-size)) {
+  @media (max-width: (30 * $font-size)) {
     @content;
   }
 }
 
-@mixin large {
-  @media (min-width: $max-overall-width) {
+@mixin narrower-mobile {
+  @media (max-width: (22 * $font-size)) {
     @content;
   }
 }
