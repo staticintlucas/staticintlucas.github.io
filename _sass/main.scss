@@ -118,7 +118,7 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: $header-font-weight;
   text-decoration: none;
   margin-top: $paragraph-spacing;
-  border-bottom: solid $grey-thickness $greyed-out;
+  border-bottom: solid $grey-thickness $hr-color;
   // Match the bottom underline with padding so its text is vertically centered within itself
   padding-top: $grey-thickness;
 
@@ -164,14 +164,14 @@ b, strong {
 // Overridden with fancy underlines below
 // u, ins {
 //     text-decoration: underline;
-//     text-decoration-color: $greyed-out;
+//     text-decoration-color: $hr-color;
 //     text-decoration-thickness: $underline-thickness;
 //     text-decoration-skip-ink: all;
 // }
 
 s, del {
   text-decoration: line-through;
-  text-decoration-color: $greyed-out;
+  text-decoration-color: $hr-color;
   text-decoration-thickness: $underline-thickness;
 }
 
@@ -260,6 +260,10 @@ pre.highlight {
     table-layout: fixed;
     border-left: solid $highlight-line $highlight;
 
+    tr {
+      border: none;
+    }
+
     td, th {
       word-wrap: none;
       padding: 0;
@@ -308,19 +312,57 @@ blockquote {
 }
 
 table {
-  background: $lighter;
+  width: 100%;
 
   thead, tfoot {
-    font-weight: $bold-font-weight;
-    font-size: $h6-font-size;
+    font-family: $table-header-font-family;
+    font-weight: $table-header-font-weight;
+    font-size: $table-header-font-size;
     // Make line height same as other rows for consistency
     line-height: $font-line-height * $font-size / $h6-font-size;
-    color: $highlight;
+    color: $greyed-out;
+
+    th {
+      text-align: start !important;
+    }
+  }
+
+  tr {
+    border-top: solid $table-line-thickness $lighterer;
+    border-bottom: solid $table-line-thickness $lighterer;
+
+    &:first-child {
+      border-top: none;
+    }
+
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+
+  thead {
+    border-bottom: solid $highlight-line $highlight;
+  }
+
+  tfoot {
+    border-top: solid $highlight-line $highlight;
   }
 
   th, td {
     padding: $table-v-spacing $table-h-spacing;
-    border: solid $table-line-thickness $lighterer;
+
+    >code {
+      background: none;
+      padding: 0;
+    }
+
+    &:first-child {
+      padding-left: 0;
+    }
+
+    &:last-child {
+      padding-right: 0;
+    }
   }
 }
 
@@ -332,7 +374,7 @@ hr {
   width: 40%;
   height: $grey-thickness;
   border: none;
-  background: $greyed-out;
+  background: $hr-color;
   margin: 2 * $paragraph-spacing auto;
 }
 

@@ -4,7 +4,8 @@ $background: #1f1f1f;
 $lighter: #262627;
 $lighterer: #323234;
 $foreground: #c8c8c8;
-$greyed-out: #858585;
+$greyed-out: #9a9a9a;
+$hr-color: #858585;
 $active-fg: white;
 $highlight: hsl(193, 30%, 52%);
 $selection-bg: rgba(hsl(193, 30%, 52%), 0.996);
@@ -45,6 +46,11 @@ $header-font-weight: 700;
 // $header-font-caps-height: 700 / 1000;
 $header-font-size: 1 * $font-size;
 
+$table-header-font-family: $header-font-family;
+$table-header-font-size: 0.75 * $font-size;
+$table-header-font-weight: 600;
+$table-line-thickness: 1.5pt;
+
 $title-font-size: 1.2 * $font-size;
 $title-line-height: $font-line-height / $title-font-size * $header-font-size;
 
@@ -55,7 +61,6 @@ $bullet-font-size: 0.8em;
 
 $highlight-line: 3pt;
 $grey-thickness: 0.12em;
-$table-line-thickness: 1.5pt;
 
 @function shadow($width, $height, $color) {
   $output: '';
@@ -86,7 +91,7 @@ $nav-v-spacing: 1 * $font-size;
 $list-h-spacing: 2 * $font-size;
 $li-h-spacing: 0.3 * $font-size;
 $paragraph-spacing: 1 * $font-size;
-$table-h-spacing: 0.5 * $font-size;
+$table-h-spacing: 0.8 * $font-size;
 $table-v-spacing: 0.2 * $font-size;
 $code-h-spacing: $font-size;
 $code-v-spacing: 0.5 * $font-size;
@@ -97,7 +102,7 @@ $max-content-width: 25 * $font-size;
 $max-overall-width: 55 * $font-size;
 
 @mixin mobile {
-  @media (max-width: 25 * $font-size) {
+  @media (max-width: (25 * $font-size)) {
     @content;
   }
 }

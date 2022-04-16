@@ -15,12 +15,12 @@ This was chosen in order to maintain backwards compatibility, but it also reduce
 Other characters&thinsp;---&thinsp;such as accented letters, non-latin alphabets, less common symbols, emojis, etc&thinsp;---&thinsp;use multiple bytes per code point.
 The encoding is shown in the table below:
 
-From      | To         | Bytes
----------:|-----------:|:-------------------------------------
-`U+0000`  | `U+007F`   | `0XXXXXXX`
-`U+0080`  | `U+07FF`   | `110XXXXX 10XXXXXX`
-`U+0800`  | `U+FFFF`   | `1110XXXX 10XXXXXX 10XXXXXX`
-`U+10000` | `U+10FFFF` | `11110XXX 10XXXXXX 10XXXXXX 10XXXXXX`
+Range (hex)                           | Bytes (binary)
+-------------------------------------:|:-------------------------------------
+   `U+0000`&thinsp;--&thinsp;`U+007F` | `0XXXXXXX`
+   `U+0080`&thinsp;--&thinsp;`U+07FF` | `110XXXXX 10XXXXXX`
+   `U+0800`&thinsp;--&thinsp;`U+FFFF` | `1110XXXX 10XXXXXX 10XXXXXX`
+`U+10000`&thinsp;--&thinsp;`U+10FFFF` | `11110XXX 10XXXXXX 10XXXXXX 10XXXXXX`
 
 This encoding makes operations such as determining the number of characters in the string non-trivial.
 With Rust's philosophy of providing zero-cost abstractions, there is no built-in method to perform these operations.
