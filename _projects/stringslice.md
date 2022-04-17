@@ -4,7 +4,7 @@
 
 # `stringslice`
 
-`stringslice` is a simple Rust utility that provides Unicode-aware slicing of stings.
+`stringslice` is a simple Rust utility that provides Unicode-aware slicing of strings.
 
 In Rust, all `String` and `&str` variables must contain valid UTF-8 data.
 There are other types of string intended for interfacing with C and with the operating system, but for general text processing these 'regular' UTF-8 strings are used.
@@ -12,7 +12,7 @@ There are other types of string intended for interfacing with C and with the ope
 UFT-8 encodes Unicode code points using a variable width encoding.
 The first 128 characters are encoded the same as their 7-bit ASCII representation.
 This was chosen in order to maintain backwards compatibility, but it also reduces the memory required to store strings in English (or other languages using the Latin script) when compared to UTF-16 or UTF-32.
-Other characters&thinsp;---&thinsp;such as accented letters, non-latin alphabets, less common symbols, emojis, etc&thinsp;---&thinsp;use multiple bytes per code point.
+Other characters&thinsp;---&thinsp;such as accented letters, non-Latin alphabets, less common symbols, emojis, etc&thinsp;---&thinsp;use multiple bytes per code point.
 The encoding is shown in the table below:
 
 Range (hex)                           | Bytes (binary)
@@ -74,7 +74,7 @@ I created this project because I had fallen into this trap in the past.
 The `stringslice` crate provides a `StringSlice` trait which allows a string to be sliced correctly regardless of the characters it contains.
 Internally it uses a similar method to the `chars()` iterator I described previously.
 It actually uses `char_indices()` to find the position (in bytes) of each character in the string.
-Using those byte positions it can correctly slice the string on the correct UTF-8 boundaries.
+Using those byte positions, it can correctly slice the string on the correct UTF-8 boundaries.
 
 Here is the previous example, modified to use `stringslice`:
 
