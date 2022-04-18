@@ -55,6 +55,7 @@ $title-font-size: 1.2 * $font-size;
 $title-line-height: $font-line-height / $title-font-size * $header-font-size;
 
 $footer-font-size: 0.8 * $font-size;
+$small-font-size: 80%;
 
 $underline-thickness: 1pt;
 $bullet-font-size: 0.8em;
@@ -62,7 +63,10 @@ $bullet-font-size: 0.8em;
 $highlight-line: 3pt;
 $grey-thickness: 0.12em;
 $hr-thickness: 1.5pt;
+$meter-thickness: 0.5em;
+$meter-margin: (1em * $font-line-height - $meter-thickness) / 2;
 $header-padding: 1em * ($font-line-height - $header-line-height) / 2;
+$subheader-padding: 1.5 * $header-padding + $grey-thickness;
 
 @function shadow($width, $height, $color) {
   $output: '';
@@ -88,6 +92,19 @@ $a-background-image: linear-gradient(to bottom,
   currentColor 100%,
   transparent 100%);
 $a-text-shadow: shadow(0.06em, 0.045em, $background);
+
+$tooltip-uline-thickness-min: 2px;
+$tooltip-uline-thickness-val: 0.06em;
+$tooltip-uline-offset: $a-uline-offset - $tooltip-uline-thickness-val / 2;
+$tooltip-header-uline-offset: $a-header-uline-offset - $tooltip-uline-thickness-val / 2;
+$tooltip-uline-thickness: Max($tooltip-uline-thickness-val, $tooltip-uline-thickness-min); // capital M so sass doesn't try to evaluate max
+$tooltip-background-size: 4px;
+$tooltip-background-image: linear-gradient(to right,
+  transparent 0,
+  currentColor 0,
+  currentColor 50%,
+  transparent 50%);
+$tooltip-text-shadow: shadow(0.12em, 0.09em, $background);
 
 $content-spacing: 4 * $font-size;
 $nav-h-spacing: 1.8 * $font-size;

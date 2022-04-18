@@ -113,7 +113,7 @@ header>nav {
   }
 }
 
-p, form, h1, h2, h3, h4, h5, h6, ul, ol, div.highlighter-rouge, table, blockquote, hr, span {
+p, form, h1, h2, h3, h4, h5, h6, hgroup, ul, ol, div.highlighter-rouge, table, blockquote, hr, span {
   margin: $paragraph-spacing 0;
 
   &.grey {
@@ -154,6 +154,22 @@ h4, h5, h6 {
   font-size: $h4-font-size;
 }
 
+hgroup {
+  border: 0;
+  margin-top: 2 * $paragraph-spacing;
+
+  >h1, >h2, >h3, >h4, >h5, >h6 {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  >p {
+    color: $greyed-out;
+    font-size: $font-size;
+    margin: 0;
+  }
+}
+
 i, em {
   font-style: italic;
 }
@@ -174,6 +190,10 @@ s, del {
   text-decoration: line-through;
   text-decoration-color: $hr-color;
   text-decoration-thickness: $underline-thickness;
+}
+
+small {
+  font-size: $small-font-size;
 }
 
 ul, ol {
@@ -239,6 +259,27 @@ a {
       -webkit-margin-start: 0;
     }
   }
+}
+
+abbr {
+  color: $foreground;
+  text-decoration: none;
+  box-decoration-break: clone;
+  background-image: $tooltip-background-image;
+  background-repeat: repeat-x;
+  background-size: $tooltip-background-size $tooltip-uline-thickness-min; // For IE11-compat
+  background-size: $tooltip-background-size $tooltip-uline-thickness;
+  background-position: top $tooltip-uline-offset left;
+  text-shadow: $tooltip-text-shadow;
+
+  h1 &, h2 &, h3 &, h4 &, h5 &, h6 & {
+    background-position: top $tooltip-header-uline-offset left;
+  }
+
+  &.noline {
+    background-image: none;
+  }
+  // text-decoration: dashed underline;
 }
 
 img {
@@ -391,4 +432,30 @@ hr {
 
 svg.icon-tabler {
   vertical-align: text-bottom;
+}
+
+meter {
+  width: 100%;
+  height: $meter-thickness;
+  background: $lighterer;
+  display: block;
+  margin: $meter-margin 0;
+
+  &::-webkit-meter-inner-element {
+    display: block;
+  }
+
+  &::-webkit-meter-bar {
+    background: $lighterer;
+    border: none;
+    border-radius: 0;
+  }
+
+  &::-webkit-meter-optimum-value, &::-webkit-meter-suboptimum-value, &::-webkit-meter-even-less-good-value {
+    background: $highlight;
+  }
+
+  &::-moz-meter-bar {
+    background: $highlight;
+  }
 }
