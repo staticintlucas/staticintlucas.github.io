@@ -69,4 +69,7 @@ Working closely with engineers from other disciplines such as hardware designers
 [university college cork]: https://www.ucc.ie
 
 *[MEngSc]: Master of Engineering Science
+*[VLSI]: Very Large Scale Integration; refers to integrating many individual functions onto a single chip
 *[BE]: Bachelor of Engineering
+*[SCARA]: Selective Compliance Articulated Robot Arm; a type of industrial robot commonly used in assembly processes
+*[PLC]: Programmable Logic Controller; a highly reliable and fault-tolerant industrial computer used to control manufacturing processes
