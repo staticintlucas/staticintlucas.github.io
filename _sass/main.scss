@@ -124,11 +124,13 @@ p, form, h1, h2, h3, h4, h5, h6, ul, ol, div.highlighter-rouge, table, blockquot
 h1, h2, h3, h4, h5, h6 {
   font-family: $header-font-family;
   font-weight: $header-font-weight;
+  line-height: $header-line-height;
   text-decoration: none;
-  margin-top: $paragraph-spacing;
+  margin-top: 2 * $paragraph-spacing;
   border-bottom: solid $grey-thickness $hr-color;
   // Match the bottom underline with padding so its text is vertically centered within itself
-  padding-top: $grey-thickness;
+  padding-top: $grey-thickness + $header-padding;
+  padding-bottom: $header-padding;
 
   &.noline {
     border-bottom: none;
@@ -148,17 +150,8 @@ h3 {
   font-size: $h3-font-size;
 }
 
-h4 {
+h4, h5, h6 {
   font-size: $h4-font-size;
-}
-
-h5 {
-  font-size: $h5-font-size;
-}
-
-h6 {
-  font-size: $h6-font-size;
-  color: $greyed-out;
 }
 
 i, em {
@@ -192,6 +185,10 @@ ul, ol {
     &::marker {
       color: $highlight;
     }
+
+    p, ul, ol {
+      margin: $li-v-spacing 0;
+    }
   }
 }
 
@@ -213,9 +210,14 @@ a, u, ins {
   box-decoration-break: clone;
   background-image: $a-background-image;
   background-repeat: no-repeat;
+  background-size: 100% $a-uline-thickness-min; // For IE11-compat
   background-size: 100% $a-uline-thickness;
   background-position: top $a-uline-offset center;
   text-shadow: $a-text-shadow;
+
+  h1 &, h2 &, h3 &, h4 &, h5 &, h6 & {
+    background-position: top $a-header-uline-offset center;
+  }
 
   &.noline {
     background-image: none;
@@ -280,6 +282,7 @@ pre.highlight {
       &:first-of-type {
         width: 1.65 * $code-h-spacing;
         padding-right: $code-h-spacing;
+        text-align: right; // For IE11-compat
         text-align: end;
         user-select: none;
       }
@@ -327,10 +330,11 @@ table {
     font-weight: $table-header-font-weight;
     font-size: $table-header-font-size;
     // Make line height same as other rows for consistency
-    line-height: $font-line-height * $font-size / $h6-font-size;
+    line-height: $font-line-height * $font-size / $table-header-font-size;
     color: $greyed-out;
 
     th {
+      text-align: left !important; // For IE11-compat
       text-align: start !important;
     }
   }
@@ -376,15 +380,7 @@ table {
 
 div.card {
   display: block;
-  margin: 2 * $paragraph-spacing 0;
-
-  >:first-child {
-    margin-top: 0;
-  }
-
-  >:last-child {
-    margin-bottom: 0;
-  }
+  margin: $paragraph-spacing 0;
 }
 
 hr {

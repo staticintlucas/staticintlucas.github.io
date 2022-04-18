@@ -24,10 +24,8 @@ $font-line-height: 25.5pt / $font-size;
 
 $h1-font-size: 2 * $font-size;
 $h2-font-size: 1.5 * $font-size;
-$h3-font-size: 1.25 * $font-size;
-$h4-font-size: 1 * $font-size;
-$h5-font-size: 0.875 * $font-size;
-$h6-font-size: 0.85 * $font-size;
+$h3-font-size: 1.0 * $font-size;
+$h4-font-size: 0.85 * $font-size;
 
 $mono-font-family: "Fira Mono", monospace;
 $mono-letter-spacing: 0;
@@ -39,12 +37,14 @@ $mono-font-size: 2/3 * $font-size;
 $mono-line-height: 1.2 * $mono-font-content-area;
 $mono-padding: 0.18em 0.4em;
 
-$header-font-family: Montserrat, "DejaVu Sans", Verdana, sans‑serif;
+$header-font-family: Montserrat, "DejaVu Sans", Verdana, sans-serif;
 $header-font-weight: 700;
-// $header-font-ascender: 968 / 1000; // from https://seek-oss.github.io/capsize/
-// $header-font-descender: 251 / 1000;
+$header-font-ascender: 968 / 1000; // from https://seek-oss.github.io/capsize/
+$header-font-descender: 251 / 1000;
 // $header-font-caps-height: 700 / 1000;
+// $header-font-content-area: $header-font-ascender + $header-font-descender;
 $header-font-size: 1 * $font-size;
+$header-line-height: 21pt / $header-font-size;
 
 $table-header-font-family: $header-font-family;
 $table-header-font-size: 0.75 * $font-size;
@@ -62,6 +62,7 @@ $bullet-font-size: 0.8em;
 $highlight-line: 3pt;
 $grey-thickness: 0.12em;
 $hr-thickness: 1.5pt;
+$header-padding: 1em * ($font-line-height - $header-line-height) / 2;
 
 @function shadow($width, $height, $color) {
   $output: '';
@@ -76,8 +77,11 @@ $hr-thickness: 1.5pt;
   @return unquote($output);
 }
 
-$a-uline-offset: $font-ascender * 1em + 0.104em;
-$a-uline-thickness: Max(0.03em, 1px); // capital M so sass doesn't try to evaluate max
+$a-uline-thickness-min: 1px;
+$a-uline-thickness-val: 0.03em;
+$a-uline-offset: ($font-ascender + $font-descender / 2) * 1em;
+$a-header-uline-offset: ($header-font-ascender + $header-font-descender / 2) * 1em;
+$a-uline-thickness: Max($a-uline-thickness-val, $a-uline-thickness-min); // capital M so sass doesn't try to evaluate max
 $a-background-image: linear-gradient(to bottom,
   transparent 0,
   currentColor 0,
@@ -85,12 +89,12 @@ $a-background-image: linear-gradient(to bottom,
   transparent 100%);
 $a-text-shadow: shadow(0.06em, 0.045em, $background);
 
-
 $content-spacing: 4 * $font-size;
 $nav-h-spacing: 1.8 * $font-size;
 $nav-v-spacing: 1 * $font-size;
 $list-h-spacing: 2 * $font-size;
 $li-h-spacing: 0.3 * $font-size;
+$li-v-spacing: 0.5 * $font-size;
 $paragraph-spacing: 1 * $font-size;
 $table-h-spacing: 0.8 * $font-size;
 $table-v-spacing: 0.2 * $font-size;
