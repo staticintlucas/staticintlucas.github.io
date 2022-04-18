@@ -95,16 +95,16 @@ $a-text-shadow: shadow(0.06em, 0.045em, $background);
 
 $tooltip-uline-thickness-min: 2px;
 $tooltip-uline-thickness-val: 0.06em;
-$tooltip-uline-offset: $a-uline-offset - $tooltip-uline-thickness-val / 2;
-$tooltip-header-uline-offset: $a-header-uline-offset - $tooltip-uline-thickness-val / 2;
+$tooltip-uline-offset: $a-uline-offset;
+$tooltip-header-uline-offset: $a-header-uline-offset;
 $tooltip-uline-thickness: Max($tooltip-uline-thickness-val, $tooltip-uline-thickness-min); // capital M so sass doesn't try to evaluate max
 $tooltip-background-size: 4px;
 $tooltip-background-image: linear-gradient(to right,
   transparent 0,
-  currentColor 0,
-  currentColor 50%,
+  $hr-color 0,
+  $hr-color 50%,
   transparent 50%);
-$tooltip-text-shadow: shadow(0.12em, 0.09em, $background);
+$tooltip-text-shadow: shadow(0.12em, 0.045em, $background);
 
 $content-spacing: 4 * $font-size;
 $nav-h-spacing: 1.8 * $font-size;
