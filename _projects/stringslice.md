@@ -26,9 +26,9 @@ This encoding makes operations such as determining the number of characters in t
 With Rust's philosophy of providing zero-cost abstractions, there is no built-in method to perform these operations.
 Luckily, for counting the number of characters there is a simple method.
 
-```rust
+~~~rust
 let length = string.chars().count();
-```
+~~~
 
 Here, the `chars()` method creates an iterator over UTF-8 code points.
 The `count()` method takes characters from the iterator until it reaches the end, returning the count.
@@ -38,33 +38,33 @@ By forcing you to create an iterator explicitly, Rust makes it obvious that this
 However, for taking a slice of a string Rust does allow indexing.
 For example, you can run the following code:
 
-```rust
+~~~rust
 let string = "abcdef";
 let slice = &string[1..4];
 
 println!("{}", slice);
-```
+~~~
 
 This compiles and runs as expected, printing out the result:
 
-```text
+~~~text
 bcd
-```
+~~~
 
 However, slicing a string like this uses *bytes* as indices, not code points.
 In that example there were only ASCII characters, so each code point is only one byte.
 On the other hand, consider this example where the string contains an emoji which is a single code point encoded as 4 bytes:
 
-```rust
+~~~rust
 let string = "ab😎ef";
 let slice = &string[1..4];
-```
+~~~
 
 Running this produces the following result:
 
-```text
+~~~text
 thread 'main' panicked at 'byte index 4 is not a char boundary; it is inside '😎' (bytes 2..6) of `ab😎ef`'
-```
+~~~
 
 The program attempted to slice the string in the middle of the UTF-8 sequence for '😎'.
 This would have produced an invalid string.
@@ -78,20 +78,20 @@ Using those byte positions, it can correctly slice the string on the correct UTF
 
 Here is the previous example, modified to use `stringslice`:
 
-```rust
+~~~rust
 use stringslice::StringSlice;
 
 let string = "ab😎ef";
 let slice = string.slice(1..4);
 
 println!("{}", slice);
-```
+~~~
 
 This does not `panic`, and more importantly prints out the expected result:
 
-```text
+~~~text
 b😎e
-```
+~~~
 
 Ultimately the project is pretty trivial; it's only around 50 lines of code if you exclude blank lines, comments, and unit tests.
 However, I find it useful for my own projects, and I thought maybe someone else would too.

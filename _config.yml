@@ -35,6 +35,7 @@ exclude: # Exclude these files from build step
 
 # Kramdown & Rouge options
 kramdown:
+  input: kramdown
   syntax_highlighter_opts:
     span:
       line_numbers: false
