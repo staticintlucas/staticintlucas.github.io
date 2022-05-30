@@ -16,13 +16,13 @@ anything web related. I did make this website though, so that's something.
 
 ## Skills
 
-C <small>(application & embedded)</small><br><meter max="10" value="9">9/10</meter>
+C <small>(application & embedded)</small><br><meter max="10" value="9.5">9.5/10</meter>
 
-Python<br><meter max="10" value="8.5">8.5/10</meter>
+Python<br><meter max="10" value="9">9/10</meter>
 
-Assembly <small>(x86/x86-64, Arm, RISC-V, others)</small><br><meter max="10" value="7.5">7.5/10</meter>
+Assembly <small>(x86/x86-64, Arm, RISC-V, others)</small><br><meter max="10" value="8.5">8.5/10</meter>
 
-C++<br><meter max="10" value="6.5">6.5/10</meter>
+C++<br><meter max="10" value="7">7/10</meter>
 
 Rust<br><meter max="10" value="6">6/10</meter>
 
