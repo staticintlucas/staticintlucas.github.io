@@ -1,3 +1,5 @@
+@use "sass:math";
+
 @function sin($a) {
   @if $a < 0 {
     @while $a < -90deg {
@@ -11,7 +13,7 @@
   @if $a > 90deg {
       $a: 180deg - $a;
   }
-  $a: $a / 1rad;
+  $a: math.div($a, 1rad);
 
   // Using Chebychev expansion instead of a partial taylor series for accuracy
   @return 0.9996949 * $a - 0.1656700 * $a * $a * $a + 0.0075134 * $a * $a * $a * $a * $a;

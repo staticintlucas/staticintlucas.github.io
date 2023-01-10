@@ -1,3 +1,4 @@
+@use "sass:math";
 @import "trig";
 
 $background: #1f1f1f;
@@ -18,12 +19,12 @@ $font-family: "Crimson Pro", Georgia, Cambria, "Times New Roman", Times, serif;
 $font-weight: 300;
 $bold-font-weight: 500;
 $font-letter-spacing: 0.003em;
-$font-ascender: 918 / 1024; // from https://seek-oss.github.io/capsize/
-$font-descender: 220 / 1024;
-$font-caps-height: 587 / 1024;
+$font-ascender: math.div(918, 1024); // from https://seek-oss.github.io/capsize/
+$font-descender: math.div(220, 1024);
+$font-caps-height: math.div(587, 1024);
 $font-content-area: $font-ascender + $font-descender;
 $font-size: 18pt;
-$font-line-height: 25.5pt / $font-size;
+$font-line-height: math.div(25.5pt, $font-size);
 
 $h1-font-size: 2 * $font-size;
 $h2-font-size: 1.5 * $font-size;
@@ -32,22 +33,22 @@ $h4-font-size: 0.85 * $font-size;
 
 $mono-font-family: "Fira Mono", monospace;
 $mono-letter-spacing: 0;
-$mono-font-ascender: 935 / 1000; // from https://seek-oss.github.io/capsize/
-$mono-font-descender: 265 / 1000;
-// $mono-font-caps-height: 689 / 1000;
+$mono-font-ascender: math.div(935, 1000); // from https://seek-oss.github.io/capsize/
+$mono-font-descender: math.div(265, 1000);
+// $mono-font-caps-height: math.div(689, 1000);
 $mono-font-content-area: $mono-font-ascender + $mono-font-descender;
-$mono-font-size: 2/3 * $font-size;
+$mono-font-size: math.div(2, 3) * $font-size;
 $mono-line-height: 1.2 * $mono-font-content-area;
 $mono-padding: 0.18em 0.4em;
 
 $header-font-family: Montserrat, "DejaVu Sans", Verdana, sans-serif;
 $header-font-weight: 700;
-$header-font-ascender: 968 / 1000; // from https://seek-oss.github.io/capsize/
-$header-font-descender: 251 / 1000;
+$header-font-ascender: math.div(968, 1000); // from https://seek-oss.github.io/capsize/
+$header-font-descender: math.div(251, 1000);
 // $header-font-caps-height: 700 / 1000;
 // $header-font-content-area: $header-font-ascender + $header-font-descender;
 $header-font-size: 1 * $font-size;
-$header-line-height: 21pt / $header-font-size;
+$header-line-height: math.div(21pt, $header-font-size);
 
 $table-header-font-family: $header-font-family;
 $table-header-font-size: 0.75 * $font-size;
@@ -55,7 +56,7 @@ $table-header-font-weight: 600;
 $table-line-thickness: 1.5pt;
 
 $title-font-size: 1.2 * $font-size;
-$title-line-height: $font-line-height / $title-font-size * $header-font-size;
+$title-line-height: math.div($font-line-height, $title-font-size) * $header-font-size;
 
 $footer-font-size: 0.8 * $font-size;
 $small-font-size: 80%;
@@ -67,8 +68,8 @@ $highlight-line: 3pt;
 $grey-thickness: 0.12em;
 $hr-thickness: 1.5pt;
 $meter-thickness: 0.5em;
-$meter-margin: (1em * $font-line-height - $meter-thickness) / 2;
-$header-padding: 1em * ($font-line-height - $header-line-height) / 2;
+$meter-margin: 0.5 * (1em * $font-line-height - $meter-thickness);
+$header-padding: 0.5em * ($font-line-height - $header-line-height);
 $subheader-padding: 1.5 * $header-padding + $grey-thickness;
 
 @function shadow($width, $height, $color) {
@@ -86,8 +87,8 @@ $subheader-padding: 1.5 * $header-padding + $grey-thickness;
 
 $a-uline-thickness-min: 1px;
 $a-uline-thickness-val: 0.03em;
-$a-uline-offset: ($font-ascender + $font-descender / 2) * 1em;
-$a-header-uline-offset: ($header-font-ascender + $header-font-descender / 2) * 1em;
+$a-uline-offset: ($font-ascender + 0.5 * $font-descender) * 1em;
+$a-header-uline-offset: ($header-font-ascender + 0.5 * $header-font-descender) * 1em;
 $a-uline-thickness: Max($a-uline-thickness-val, $a-uline-thickness-min); // capital M so sass doesn't try to evaluate max
 $a-background-image: linear-gradient(to bottom,
   transparent 0,

@@ -1,9 +1,10 @@
+@use "sass:math";
 @import "variables";
 
 body {
   background-color: $background;
   color: $foreground;
-  padding: $content-spacing / 2;
+  padding: 0.5 * $content-spacing;
   font-size: $font-size;
   line-height: $font-line-height;
   font-family: $font-family;
@@ -371,7 +372,7 @@ table {
     font-weight: $table-header-font-weight;
     font-size: $table-header-font-size;
     // Make line height same as other rows for consistency
-    line-height: $font-line-height * $font-size / $table-header-font-size;
+    line-height: $font-line-height * math.div($font-size, $table-header-font-size);
     color: $greyed-out;
 
     th {
