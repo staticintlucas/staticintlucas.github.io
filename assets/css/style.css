@@ -68,7 +68,7 @@ body {
   align-items: center;
 }
 body ::selection {
-  background-color: rgba(96, 153, 169, 0.996);
+  background-color: rgba(95.88, 153.408, 169.32, 0.996);
   color: black;
   text-shadow: none;
 }
@@ -228,7 +228,7 @@ ul > li, ol > li {
   padding-left: 5.4pt;
 }
 ul > li::marker, ol > li::marker {
-  color: hsl(193deg, 30%, 52%);
+  color: hsl(193, 30%, 52%);
 }
 ul > li p, ul > li ul, ul > li ol, ol > li p, ol > li ul, ol > li ol {
   margin: 9pt 0;
@@ -313,7 +313,7 @@ pre.highlight, pre.highlight code, pre.highlight pre {
 pre.highlight > code > table {
   width: 100%;
   table-layout: fixed;
-  border-left: solid 3pt hsl(193deg, 30%, 52%);
+  border-left: solid 3pt hsl(193, 30%, 52%);
 }
 pre.highlight > code > table tr {
   border: none;
@@ -340,7 +340,7 @@ blockquote {
   font-style: italic;
   background: #262627;
   padding: 7.2pt 14.4pt;
-  border-left: solid 3pt hsl(193deg, 30%, 52%);
+  border-left: solid 3pt hsl(193, 30%, 52%);
 }
 blockquote > p {
   quotes: initial;
@@ -382,10 +382,10 @@ table tr:last-child {
   border-bottom: none;
 }
 table thead {
-  border-bottom: solid 3pt hsl(193deg, 30%, 52%);
+  border-bottom: solid 3pt hsl(193, 30%, 52%);
 }
 table tfoot {
-  border-top: solid 3pt hsl(193deg, 30%, 52%);
+  border-top: solid 3pt hsl(193, 30%, 52%);
 }
 table th, table td {
   padding: 3.6pt 14.4pt;
@@ -432,10 +432,10 @@ meter::-webkit-meter-bar {
   border-radius: 0;
 }
 meter::-webkit-meter-optimum-value, meter::-webkit-meter-suboptimum-value, meter::-webkit-meter-even-less-good-value {
-  background: hsl(193deg, 30%, 52%);
+  background: hsl(193, 30%, 52%);
 }
 meter::-moz-meter-bar {
-  background: hsl(193deg, 30%, 52%);
+  background: hsl(193, 30%, 52%);
 }
 
 ::-webkit-scrollbar, ::-webkit-scrollbar-corner {
