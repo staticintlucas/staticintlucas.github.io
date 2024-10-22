@@ -12,6 +12,8 @@ jobs:
     steps:
     - name: Set up Ruby
       uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: 3.3.5 # Automatically reading .ruby-version doesn't seem to work
 
     - name: Set up minifier
       run: sudo apt-get install minify
